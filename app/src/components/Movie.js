@@ -1,15 +1,16 @@
 import React from "react";
 
-class Movie extends React.Component {
-  render() {
-    const { title, year } = this.props.data;
-    return (
-      <React.Fragment>
-        <h2>{title}</h2>
-        <p>released in: {year}</p>
-      </React.Fragment>
-    );
-  }
-}
+const Movie = props => {
+  const { title, year } = props.data;
+  const { deleteMovie } = props;
+
+  return (
+    <React.Fragment>
+      <h2>{title}</h2>
+      <p>released in: {year}</p>
+      <button onClick={deleteMovie}>Delete</button>
+    </React.Fragment>
+  );
+};
 
 export default Movie;

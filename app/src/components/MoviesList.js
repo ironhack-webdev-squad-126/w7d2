@@ -1,26 +1,45 @@
 import React from "react";
 import Movie from "./Movie";
 
-const MoviesList = () => {
-  const movies = [
-    { title: "Titanic", year: 1998 },
-    { title: "La Haine", year: 1995 },
-    { title: "Le Cinquième Element", year: 1997 }
-  ];
+class MoviesList extends React.Component {
+  state = {
+    movies: [
+      { title: "Titanic", year: 1998 },
+      { title: "La Haine", year: 1995 },
+      { title: "Le Cinquième Element", year: 1997 }
+    ]
+  };
 
-  const movieElements = movies.map((el, i) => {
-    return <Movie data={el} key={i} />;
-  });
+  handleClick = index => {
+    // const movies = this.state.movies.slice()
+    // const movies = [...this.state.movies]
+    // movies.splice(index, 1)
 
-  return (
-    <ul>
-      {movieElements}
+    const { movies } = this.state;
+    this.setState({
+      movies: movies.filter((el, i) => i !== index)
+    });
+  };
 
-      {movies.map((el, i) => (
-        <Movie data={el} key={i} />
-      ))}
-    </ul>
-  );
-};
+  render() {
+    const { movies } = this.state;
+
+    const movieElements = movies.map((el, i) => {
+      return (
+        <Movie deleteMovie={() => this.handleClick(i)} data={el} key={i} />
+      );
+    });
+
+    return (
+      <ul>
+        {movieElements}
+
+        {/* {movies.map((el, i) => (
+          <Movie data={el} key={i} />
+        ))} */}
+      </ul>
+    );
+  }
+}
 
 export default MoviesList;

@@ -11,8 +11,6 @@ const App = () => {
     return <li key={i}>{el}</li>;
   });
 
-  console.log(listElements);
-
   return (
     <div className="App">
       {/* <Header /> */}
