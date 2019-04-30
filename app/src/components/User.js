@@ -14,19 +14,24 @@ class User extends React.Component {
   state = {
     firstName: this.props.firstName,
     lastName: this.props.lastName,
-    buttonText: "Click me!"
+    buttonText: "Click me!",
+    clicked: 0
   };
 
   handleClick = () => {
-    const newState = {
-      firstName: this.state.firstName.toUpperCase(),
-      lastName: this.state.lastName.toUpperCase()
-    };
-    this.setState(newState);
+    let { firstName, clicked } = this.state;
+
+    this.setState({
+      firstName:
+        firstName === firstName.toLowerCase()
+          ? firstName.toUpperCase()
+          : firstName.toLowerCase(),
+      clicked: ++clicked
+    });
   };
 
   render() {
-    const { firstName, lastName, buttonText } = this.state;
+    const { firstName, lastName, buttonText, clicked } = this.state;
 
     return (
       <div>
@@ -34,10 +39,17 @@ class User extends React.Component {
           {firstName} {lastName}
         </h2>
         {/* <Greeting firstName={firstName} /> */}
+        <p>Clicked {clicked} times</p>
         <button onClick={this.handleClick}>{buttonText}</button>
       </div>
     );
   }
 }
+
+// create a button
+// button should change color to a new color on click
+// should show the number of clicks
+// 1 => LIKE
+// 0 and 2+ => LIKES
 
 export default User;
