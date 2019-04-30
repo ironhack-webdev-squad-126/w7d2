@@ -46,7 +46,7 @@ class User extends React.Component {
   }
 }
 
-// create a button
+// create a button component
 // button should change color to a new color on click
 // should show the number of clicks
 // 1 => LIKE
