@@ -46,10 +46,4 @@ class User extends React.Component {
   }
 }
 
-// create a button component
-// button should change color to a new color on click
-// should show the number of clicks
-// 1 => LIKE
-// 0 and 2+ => LIKES
-
 export default User;
