@@ -1,7 +1,9 @@
 import React from "react";
 
 const Movie = props => {
-  const { title, year } = props.data;
+  console.log(props);
+
+  const { title, year } = props;
   const { deleteMovie } = props;
 
   return (

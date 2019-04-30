@@ -25,9 +25,8 @@ class MoviesList extends React.Component {
     const { movies } = this.state;
 
     const movieElements = movies.map((el, i) => {
-      return (
-        <Movie deleteMovie={() => this.handleClick(i)} data={el} key={i} />
-      );
+      return <Movie deleteMovie={() => this.handleClick(i)} {...el} key={i} />;
+      //   return <Movie deleteMovie={() => this.handleClick(i)} title={el.title} year={el.year}   key={i} />;
     });
 
     return (
